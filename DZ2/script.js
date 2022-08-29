@@ -1,29 +1,34 @@
-let firstOperand = +prompt('Enter first operand');
-while(validationFornumbers(firstOperand)) {
+let firstOperand = prompt('Enter first operand');
+while(validateNumber(firstOperand)) {
     firstOperand = prompt('Value is invalid. Enter first number');
    }
-let secondOperand = +prompt('Enter second operand');
+firstOperand = +firstOperand
 
-while(validationFornumbers(secondOperand)) {
+let secondOperand = prompt('Enter second operand');
+
+while(validateNumber(secondOperand)) {
     secondOperand = prompt('Value is invalid. Enter second number');
    }
+secondOperand = +secondOperand
 
 let mathAction = prompt('Enter +, -, *, /');
-while(!mathOperators(mathAction)) {
+while(!chooseMathoperator(mathAction)) {
     mathAction = prompt('Value is invalid. Enter +, -, *, /');
    }
-calculateMathoperators(mathAction);
+calculateMathoperator(mathAction);
 
-function validationFornumbers(numbers){
-return numbers === null || numbers === '' || isNaN(numbers);
+
+
+function validateNumber(number){
+return number === null || number === '' || isNaN(number);
 }
 
-function mathOperators(operators){
-return operators === '+'|| operators === '-'|| operators === '*'|| operators === '/' 
+function chooseMathoperator(operator){
+return operator === '+'|| operator === '-'|| operator === '*'|| operator === '/' 
 }
 
 
-function calculateMathoperators(calc){
+function calculateMathoperator(calc){
     switch(calc){
         case '+': 
         alert(firstOperand+ '+' + secondOperand + '=' +(firstOperand + secondOperand));
