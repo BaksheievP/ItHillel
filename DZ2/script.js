@@ -1,58 +1,45 @@
-let firstOperand = prompt('Enter first operand');
-while(validation(firstOperand)) {
+let firstOperand = +prompt('Enter first operand');
+while(validationFornumbers(firstOperand)) {
     firstOperand = prompt('Value is invalid. Enter first number');
    }
-let secondOperand = prompt('Enter second operand');
+let secondOperand = +prompt('Enter second operand');
 
-while(validation(secondOperand)) {
+while(validationFornumbers(secondOperand)) {
     secondOperand = prompt('Value is invalid. Enter second number');
    }
 
 let mathAction = prompt('Enter +, -, *, /');
-
-if (conditionalOperators(mathAction)){
-    calculateMath(mathAction)
-  }
-else{
-while(validation1(mathAction)) {
+while(!mathOperators(mathAction)) {
     mathAction = prompt('Value is invalid. Enter +, -, *, /');
    }
-calculateMath(mathAction);
+calculateMathoperators(mathAction);
 
+function validationFornumbers(numbers){
+return numbers === null || numbers === '' || isNaN(numbers);
+}
+
+function mathOperators(operators){
+return operators === '+'|| operators === '-'|| operators === '*'|| operators === '/' 
 }
 
 
-
-function validation(Numbers){
-return Numbers === null || Numbers === '' || isNaN(Numbers);
-}
-function validation1(Symbols){
-return Symbols === null || Symbols === '' || !isNaN(Symbols) || Symbols !=='+' 
-}
-
-function conditionalOperators(Operators){
-return Operators === '+'|| Operators === '-'|| Operators === '*'|| Operators === '/' 
-}
-
-
-function calculateMath(Calc){
-    switch(Calc){
+function calculateMathoperators(calc){
+    switch(calc){
         case '+': 
-        alert(firstOperand+ '+' + secondOperand + '=' +(+firstOperand + +secondOperand));
+        alert(firstOperand+ '+' + secondOperand + '=' +(firstOperand + secondOperand));
         break;
         case '-': 
-        alert(firstOperand+ '-' + secondOperand+ '=' +(+firstOperand - +secondOperand));
+        alert(firstOperand+ '-' + secondOperand+ '=' +(firstOperand - secondOperand));
         break;
         case '*': 
-        alert(firstOperand+ '*' + secondOperand+ '=' +(+firstOperand * +secondOperand));
+        alert(firstOperand+ '*' + secondOperand+ '=' +(firstOperand * secondOperand));
         break;
         case '/': 
-        alert(firstOperand+ '/' + secondOperand+ '=' +(+firstOperand / +secondOperand));
+        alert(firstOperand+ '/' + secondOperand+ '=' +(firstOperand / secondOperand));
         break;
         default: 
         alert('incorrect symbols')
     }
-return Calc
+return calc
 }
-
 
