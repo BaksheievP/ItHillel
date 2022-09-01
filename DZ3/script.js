@@ -1,20 +1,19 @@
 
-  let sum = 0
+  let oddresult = 0
   let i = 0
-  let j = 0
-const operandA = caclulateNumbers('Enter number'); 
-const operandB = sumEvennumbers('sum of even numbers -',sum)
-const operandC = sumOddnumbers('sum of odd numbers -',sum)
+  let evenresult = 0
+const operandA = validateOperand('Enter number'); 
+const operandB = caclulateNumbers(evenresult,oddresult)
 
 
-function validateOperand(value){
+function operandIsunvalid(value){
     return value < 0 || value === '' || value === null || isNaN(value)
  
 }
 
-function caclulateNumbers(label){
+function validateOperand(label){
         let operand
-        while( validateOperand(operand)){
+        while( operandIsunvalid(operand)){
             operand = prompt(label)
             }     
          
@@ -22,26 +21,20 @@ function caclulateNumbers(label){
     }
     
    
-function sumEvennumbers(label,sum){   
+function caclulateNumbers(evenresult, oddresult){
 do{
-    if(i % 2 == 0)
-    sum += i
-    i++
-   
-}
+
+    if(i % 2 == 0){
+        evenresult += i
+        i++
+        }
+    else {
+       oddresult += i
+       i++
+    }
+}  
+
 while(i <= operandA)
-return console.log(label,sum)
+return console.log(evenresult, oddresult)
+
 }
-
-function sumOddnumbers(label,sum){   
-    do{
-        if(j % 2 != 0)
-        sum += j
-        j++
-       
-    }
-    while(j <= operandA)
-    return console.log(label,sum)
-    }
-
-
