@@ -6,11 +6,20 @@ const calculation = {
 };
 const operand = getValidatedValue('Enter operand : +, -, *, /', chooseMathoperator)
 console.log('your operand is -', operand)
-const operandNumbers = getValidatedValue('enter numbers in format &,&,&...', validateNumber).split(',').map(Number)
-console.log('your numbers are -', operandNumbers)
-const result = operandNumbers.reduce(calculation[operand])
-console.log(`operation ${operand} to  ${operandNumbers}  is  ${result}`)
+const operandNumbers = getValidatedValue('enter numbers in format &,&,&...', validateNumber)
+const operandNumbersFinal = arrayFormation( operandNumbers ,',', Number)
 
+console.log('your numbers are -', operandNumbersFinal)
+const result = operandNumbersFinal.reduce(calculation[operand])
+console.log(`operation ${operand} to  ${operandNumbersFinal}  is  ${result}`)
+
+
+
+function arrayFormation(operand, strsplit, numberformat){
+    let format 
+      format = operand.split(strsplit).map(numberformat)
+    return format
+}
 
 
 function getValidatedValue(question, validationFunc){
