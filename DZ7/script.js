@@ -1,31 +1,14 @@
 
 function createCalculator() {
-    let res = 0;
+    let res = +prompt('enter number');
     return {
-        set: function (value) { 
-            return res = value 
-        },
-        sum: function sum(value) {
-            return res = res + value
-        },
-        mult: function mult(value) {
-            return res = res * value
-        },
-        div: function div(value) {
-            return res = res / value
-        },
-        sub: function sub(value) {
-            return res = res - value
-        },
-        
-    };
-}
-
-const calc = createCalculator()
-
-    
-calc.set(15);
-console.log(set)
-calc.sum(15);
-calc.calc(15);
-calc.div(15);
+        set: (value) =>  res = value ,
+        sum: (value) =>  res = res + value ,
+        mult:(value) =>  res = res * value , 
+        div: (value) =>  res = res / value ,
+        sub: (value) =>  res = res - value ,
+        }
+};
+ const calc = createCalculator();
+ const result = calc.mult(2)
+ console.log(result)
