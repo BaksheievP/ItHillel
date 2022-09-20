@@ -1,5 +1,4 @@
 
-let res
 function createCalculator(res) {
     return {
         set: (value) => res = value,
