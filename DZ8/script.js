@@ -4,9 +4,9 @@ const calculation = {
     "*": (a, b) => a * b,
     "/": (a, b) => a / b,
 };
-let firstOperand = document.querySelector('#first-operand')
-let secondOperand = document.querySelector('#second-operand')
-let selectOperator = document.querySelector('#choose-math-operator')
+const firstOperand = document.querySelector('#first-operand')
+const secondOperand = document.querySelector('#second-operand')
+const selectOperator = document.querySelector('#choose-math-operator')
 const resultDiv = document.querySelector('#result')
 const btn = document.querySelector('button')
 btn.addEventListener('click', onBtnClickAll)
