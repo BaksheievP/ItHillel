@@ -1,0 +1,11 @@
+.delete-btn{
+background-color: aqua;
+}
+
+input.invalid-input{
+    background-color: red;
+}
+
+table.switchcolor{
+    background-color: blue;
+}

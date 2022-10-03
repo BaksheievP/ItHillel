@@ -16,8 +16,7 @@
 .switchcolor {
     background-color: green;
 }
-
-.input {
+input.input {
     background-color: red;
 }
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link href="../Libraries/Skeleton-2.0.4/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../Libraries/Skeleton-2.0.4/css/skeleton.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <form  id = "todoform">
+    <table class="container">
+        <thead>
+            <th>Todo list</th>
+        </thead>
+        <tbody id = "todolist">
+      
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><input class="u-full-width ten.columns" type="text" id="todo" placeholder="ToDo"></input></td>
+                <td><button class="u-pull-width" id="addBntClick">Save</button></td>
+                
+        </tfoot>
+    </table>
+</form>
+<script type="text/Tdtemplate" id="Tdtemplate">
+    <tr class = "todo-item" data-contact-id = "{{id}} ">
+    <td class = "todolayout">{{ToDo}}</td>
+    <td><button class = "delete-btn" type = "button">X</button></td>
+    </tr>
+ </script>
+</body>
+
+
+</html>
