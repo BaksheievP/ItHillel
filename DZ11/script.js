@@ -1,6 +1,6 @@
 const DELETE_BTN_CLASS = 'delete-btn'
 const TODO_ITEM_CLASS = 'todo-item';
-const TODO_CLASS ='done'
+const TODO_CLASS = 'done'
 const TODO_ITEM_SELECTOR = '.todo-item'
 const INVALID_INPUT_CLASS = 'invalid-input'
 const toDoList = document.querySelector('#todolist')
@@ -11,29 +11,32 @@ const todoTable = document.querySelector('#container');
 const btnOnClick = document.querySelector('#addBntClick');
 
 let todoElList = [
-    { toDo: 'do homework', id: 1, isDone : false },
-    { toDo: 'do mistakes', id: 2, isDone : true },
-    { toDo: 'do diff things', id: 3, isDone : false},
+    { toDo: 'do homework', id: 1, isDone: false },
+    { toDo: 'do mistakes', id: 2, isDone: true },
+    { toDo: 'do diff things', id: 3, isDone: false },
 ];
 
 todoForm.addEventListener('submit', onFormSubmit);
 toDoList.addEventListener('click', onToDoListClick);
-toDoList.addEventListener('click',  onFormElementInput)
+
 
 
 init();
 
 function init() {
     renderList(todoElList);
-    
+
 }
 
 function onFormSubmit(e) {
     e.preventDefault();
     const newTodo = getToDoValues();
+    resetValidation();
+    console.log(newTodo)
+    if (!newTodo) return validateInput()
     addToDo(newTodo);
     resetFormData();
-    
+
 }
 function onToDoListClick(e) {
     if (e.target.classList.contains(DELETE_BTN_CLASS)) {
@@ -47,12 +50,6 @@ function onToDoListClick(e) {
 
 }
 
-
-function onFormElementInput(e) {
-    validateInput(e.target);
-    
-}
-
 function renderList(list) {
     toDoList.innerHTML = list.map(generateTodoHtml).join('');
 
@@ -61,14 +58,16 @@ function renderList(list) {
 function generateTodoHtml({ toDo, id, isDone }) {
     return todoTemplate.replaceAll('{{ToDo}}', toDo)
         .replaceAll('{{id}}', id)
-        .replaceAll('{{classlayout}}', isDone? TODO_CLASS : '' )
-       
+        .replaceAll('{{classlayout}}', isDone ? TODO_CLASS : '')
+
 
 }
 
 function getToDoValues() {
-    return {
-        toDo: todoInput.value
+    if (todoInput.value) {
+        return {
+            toDo: todoInput.value
+        }
     }
 }
 
@@ -88,25 +87,19 @@ function deleteToDoId(id) {
     todoElList = todoElList.filter((item) => item.id !== id)
     renderList(todoElList)
 }
-
-function validateInput(input) {
-    resetValidation(input);
-    if (input.value === '') {
-        input.classList.add(INVALID_INPUT_CLASS);
-    }
-   
+function validateInput() {
+    todoInput.classList.add(INVALID_INPUT_CLASS);
 }
 
-function resetValidation(input) {
-    input.classList.remove(INVALID_INPUT_CLASS)
-  
+function resetValidation() {
+    todoInput.classList.remove(INVALID_INPUT_CLASS);
 }
 
 function resetFormData() {
     todoInput.value = '';
 }
 
-function toggleTodo(id){
+function toggleTodo(id) {
     const todo = todoElList.find((item) => item.id === id)
     todo.isDone = !todo.isDone;
     renderList(todoElList)

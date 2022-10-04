@@ -13,27 +13,27 @@
 </head>
 
 <body>
-    <form  id = "todoform">
-    <table class="container">
-        <thead>
-            <th>Todo list</th>
-        </thead>
-        <tbody id = "todolist">
-      
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>
-                    <input type="text" id="input-input" placeholder="ToDo"></input>
-                </td>
-                <td>
-                    <button class="u-pull-width" id="addBntClick">Save</button>
-                </td>
-                
-        </tfoot>
-    </table>
-</form>
-<script type="text/Tdtemplate" id="Tdtemplate">
+    <form id="todoform">
+        <table class="container">
+            <thead>
+                <th>Todo list</th>
+            </thead>
+            <tbody id="todolist">
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <input type="text" id="input-input" placeholder="ToDo"></input>
+                    </td>
+                    <td>
+                        <button class="u-pull-width" id="addBntClick">Save</button>
+                    </td>
+
+            </tfoot>
+        </table>
+    </form>
+    <script type="text/Tdtemplate" id="Tdtemplate">
     <tr class = "todo-item  {{classlayout}}" data-contact-id = "{{id}} ">
     <td class = "todo-item  {{classlayout}}" data-contact-id = "{{id}} ">{{ToDo}}</td>
     <td><button class = "delete-btn" type = "button">X</button></td>
