@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
-    <link href="../Libraries/Skeleton-2.0.4/css/normalize.css" rel="stylesheet" type="text/css">
-    <link href="../Libraries/Skeleton-2.0.4/css/skeleton.css" rel="stylesheet" type="text/css">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <!-- <link href="../Libraries/Skeleton-2.0.4/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../Libraries/Skeleton-2.0.4/css/skeleton.css" rel="stylesheet" type="text/css"> -->
 </head>
 
 <body>
@@ -22,15 +23,19 @@
         </tbody>
         <tfoot>
             <tr>
-                <td><input class="u-full-width ten.columns" type="text" id="todo" placeholder="ToDo"></input></td>
-                <td><button class="u-pull-width" id="addBntClick">Save</button></td>
+                <td>
+                    <input type="text" id="input-input" placeholder="ToDo"></input>
+                </td>
+                <td>
+                    <button class="u-pull-width" id="addBntClick">Save</button>
+                </td>
                 
         </tfoot>
     </table>
 </form>
 <script type="text/Tdtemplate" id="Tdtemplate">
-    <tr class = "todo-item" data-contact-id = "{{id}} ">
-    <td class = "todolayout">{{ToDo}}</td>
+    <tr class = "todo-item  {{classlayout}}" data-contact-id = "{{id}} ">
+    <td class = "todo-item  {{classlayout}}" data-contact-id = "{{id}} ">{{ToDo}}</td>
     <td><button class = "delete-btn" type = "button">X</button></td>
     </tr>
  </script>

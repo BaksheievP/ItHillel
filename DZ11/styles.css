@@ -1,11 +1,12 @@
-.delete-btn{
-background-color: aqua;
-}
 
-input.invalid-input{
+
+.invalid-input{
     background-color: red;
 }
 
-table.switchcolor{
-    background-color: blue;
+.todo-item.done{
+    background-color: rgb(32, 199, 169);
+}
+.todo-item{
+    background-color: rgb(188, 188, 197);
 }
