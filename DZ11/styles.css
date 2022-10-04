@@ -1,12 +1,11 @@
-
-
-.invalid-input{
+.invalid-input {
     background-color: red;
 }
 
-.todo-item.done{
+.todo-item.done {
     background-color: rgb(32, 199, 169);
 }
-.todo-item{
+
+.todo-item {
     background-color: rgb(188, 188, 197);
 }
