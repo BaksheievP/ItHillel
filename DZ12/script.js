@@ -1,4 +1,3 @@
-'use sctict'
 function Calc(number) {
     this.set = (value) => number = value,
     this.sum = (value) => number = number + value,
