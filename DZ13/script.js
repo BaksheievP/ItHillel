@@ -9,22 +9,21 @@ const TOPPING_SEASONING = { price: 15, callories: 10 };
 const TOPPING_MAYO = { price: 10, callories: 20 };
 
 
-function Hamburger(obj) {
-    this.price = obj.price;
-    this.callories = obj.callories;
-
-    this.addTopping = function (value) {
-        this.price = value.price + this.price;
-        this.callories = value.callories + this.callories;
-        
-    }
-    this.getPrice = function () {
-        return this.price;
-    }
-    this.getCallories = function () {
-        return this.callories;
-    }
+function Hamburger(inputMenu) {
+    this.price = inputMenu.price;
+    this.callories = inputMenu.callories;
 }
+Hamburger.prototype.addTopping = function (topping) {
+    this.price = topping.price + this.price;
+    this.callories = topping.callories + this.callories;
+}
+Hamburger.prototype.getPrice = function () {
+    return this.price;
+}
+Hamburger.prototype.getCallories = function () {
+    return this.callories;
+}
+
 
 hamburger = new Hamburger(SMALL_SIZE);
 
