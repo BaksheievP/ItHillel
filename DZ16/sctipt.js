@@ -11,12 +11,12 @@ const nameInput = document.querySelector('#name');
 const surnameInput = document.querySelector('#surname');
 const emailInput = document.querySelector('#email');
 const contactTemplate = document.querySelector('#contactTemplate').innerHTML;
-const contactBtn = document.querySelector('#addContactBtn')
+
 let contactsList = [];
 
 contactForm.addEventListener('submit', onFormSubmit);
 contactsListEl.addEventListener('click', onContactsListElClick)
-contactBtn.addEventListener('click', onAddBtnOnClick)
+
 
 init();
 
@@ -25,15 +25,12 @@ function init() {
     renderList(contactsList);
 }
 
-function onAddBtnOnClick(){
- if (!validateForm()){
-    return;
- }
-}
 
 function onFormSubmit(e) {
     e.preventDefault();
-    onAddBtnOnClick();
+    if (!validateForm()){
+        return;
+     }
     const contactData = getFormValues();
 
     saveContact(contactData);
