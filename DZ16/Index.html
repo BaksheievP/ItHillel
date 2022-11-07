@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <link href="../Libraries/Skeleton-2.0.4/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="../Libraries/Skeleton-2.0.4/css/skeleton.css" rel="stylesheet" type="text/css"> -->
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <script src="sctipt.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <form id="contactForm">
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody class="u-full-width" id="contactsList"></tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                        <input  type="hidden" id="id" />
+                        <input  type="text" id="name" placeholder="Name" />
+                        </td>
+                        <td><input  type="text" id="surname" placeholder="Surname"> </input></td>
+                        <td><input type="text" id="email" placeholder="Email"> </input></td>
+                        <td>
+                            <button type="submit" id="addContactBtn">Save</button>
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+    <script type="text/Tdtemplate" id="contactTemplate">
+        <tr class="contact-item" data-contact-id="{{id}}">
+            <td class = "">{{name}}</td>
+            <td class = "">{{surname}}</td>
+            <td class = "">{{email}}</td>
+        <td>
+            <button type="button" class="edit-btn">Edit</button>
+            <button type="button" class="delete-btn">Delete</button>
+        </td>
+
+        </script>
+
+
+
+</body>
+
+</html>

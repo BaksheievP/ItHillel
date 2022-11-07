@@ -24,13 +24,13 @@ function init() {
     renderList(todoElList);
 
 }
-function fetchToDo(){
-fetch('https://jsonplaceholder.typicode.com/todos').then((resp) =>{
-    resp.json().then((data) => {
-        todoElList = data;
-        renderList(todoElList);
-    });
-})
+function fetchToDo() {
+    fetch('https://jsonplaceholder.typicode.com/todos').then((resp) => {
+        resp.json().then((data) => {
+            todoElList = data;
+            renderList(todoElList);
+        });
+    })
 };
 
 function onFormSubmit(e) {
