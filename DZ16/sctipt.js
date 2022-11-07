@@ -11,15 +11,12 @@ const nameInput = document.querySelector('#name');
 const surnameInput = document.querySelector('#surname');
 const emailInput = document.querySelector('#email');
 const contactTemplate = document.querySelector('#contactTemplate').innerHTML;
-
+const contactBtn = document.querySelector('#addContactBtn')
 let contactsList = [];
 
 contactForm.addEventListener('submit', onFormSubmit);
 contactsListEl.addEventListener('click', onContactsListElClick)
-nameInput.addEventListener('input', onFormElementInput);
-surnameInput.addEventListener('input', onFormElementInput);
-emailInput.addEventListener('input', onFormElementInput);
-
+contactBtn.addEventListener('click', onAddBtnOnClick)
 
 init();
 
@@ -28,9 +25,15 @@ function init() {
     renderList(contactsList);
 }
 
+function onAddBtnOnClick(){
+ if (!validateForm()){
+    return;
+ }
+}
+
 function onFormSubmit(e) {
     e.preventDefault();
-
+    onAddBtnOnClick();
     const contactData = getFormValues();
 
     saveContact(contactData);
@@ -44,10 +47,6 @@ function fetchContactList() {
             contactsList = data;
             renderList(contactsList);
         });
-}
-
-function onFormElementInput(e) {
-    validateInput(e.target);
 }
 
 function getFormValues() {
@@ -103,8 +102,6 @@ function deleteContact(id) {
 
 }
 
-
-
 function fillFormValues({ id, name, surname, email }) {
     idInput.value = id;
     nameInput.value = name;
@@ -135,17 +132,17 @@ function addContact(contact) {
 }
 
 function updateContact(contact) {
-    fetch(API_URL + id, {
+    fetch(API_URL + contact.id, {
         method: 'PUT',
         body: JSON.stringify(contact),
         headers: {
             'Content-Type': 'application/json',
         },
     }).then((resp) => resp.json()).then((data) => {
-        contactsList = contactsList.map((item) =>
-            item.id === contact.id ? data : item
+        updateItem = contactsList.map((item) =>
+            +item.id === contact.id ? data : item
         )
-        renderList(contactsList);
+        renderList(updateItem);
     })
 }
 
@@ -156,13 +153,26 @@ function editContact(id) {
 
 }
 
-function validateInput(input) {
-    resetValidation(input);
-    if (input.value === '') {
-        input.classList.add(INVALID_INPUT_CLASS);
-    }
+
+function resetValidation() {
+    nameInput.classList.remove(INVALID_INPUT_CLASS);
+    surnameInput.classList.remove(INVALID_INPUT_CLASS);
+    emailInput.classList.remove(INVALID_INPUT_CLASS);
 }
 
-function resetValidation(input) {
-    input.classList.remove(INVALID_INPUT_CLASS);
+function validateForm(){
+    resetValidation();
+    if (nameInput.value === '') {
+       nameInput.classList.add(INVALID_INPUT_CLASS);
+        return false;
+    }
+    if (surnameInput.value === '') {
+        surnameInput.classList.add(INVALID_INPUT_CLASS);
+        return false;
+    }
+    if (emailInput.value === '') {
+       emailInput.classList.add(INVALID_INPUT_CLASS);
+        return false;
+    }
+    return true;
 }
