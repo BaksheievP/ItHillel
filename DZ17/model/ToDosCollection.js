@@ -31,4 +31,9 @@ class TodosCollection {
             this.list = this.list.filter((item) => item.id !== id);
         });
     }
+    create(data){
+        return this.#api.create(data).then((createTodo) => {
+            this.list = [...this.list, createTodo]
+        });
+    }
 }

@@ -1,6 +1,7 @@
 class TodoController {
     #todoListView = null;
     #todosCollection = null;
+    #formView = null;;
 
     constructor(container) {
         this.#todoListView = new TodoListView({
@@ -8,6 +9,12 @@ class TodoController {
             onDelete: (id) => this.delete(id),
         });
         container.append(this.#todoListView.el);
+
+        this.#formView = new FormView({
+            onSave: (data) => this.create(data)
+        });
+        container.append(this.#formView.el);
+        
 
         this.#todosCollection = new TodosCollection();
         this.#todosCollection
@@ -32,4 +39,13 @@ class TodoController {
                 this.#todoListView.renderList(this.#todosCollection.list)
             );
     }
+ 
+   create(data){
+    this.#todosCollection
+    .create(data)
+    .then(()=> 
+        this.#todoListView.renderList(this.#todosCollection.list))
+   }
+
 }
+

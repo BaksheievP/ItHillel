@@ -31,7 +31,7 @@ class TodoListView {
 
     el = null;
     #config = null;
-    form = null;
+
 
     static generateTodoItemHtml(todo) {
         return interpolate(TodoListView.todoItemTemplate, todo).replaceAll(
@@ -53,18 +53,8 @@ class TodoListView {
     }
 
     #initView() {
-        const row = document.createElement('div');
-        row.className = 'row';
-
-        const div = document.createElement('div');
-        div.className = 'twelve columns';
-
-        const form = document.createElement('form');
-        form.className = 'form'
-    
-        row.append(div);
-        row.append(form);
-
+        const row = htmlToElement(TodoListView.todoListContainerTemplate)
+       
         row.addEventListener('click', (e) => {
             if (
                 e.target.classList.contains(
@@ -85,12 +75,15 @@ class TodoListView {
         });
 
         this.el = row;
+       
+       
     }
 
     renderList(list) {
         this.el.innerHTML = list
             .map(TodoListView.generateTodoItemHtml)
             .join('');
+      
     }
 
     toggleTodo(id) {
