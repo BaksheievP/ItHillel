@@ -36,4 +36,11 @@ class TodosCollection {
             this.list = [...this.list, createTodo]
         });
     }
+    updateNote(id, changes) {
+        const item = this.list.find((item) => item.id === id);
+        const updatedItem = {
+            ...item,
+            ...changes,
+        };
+}
 }

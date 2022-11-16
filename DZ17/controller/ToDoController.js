@@ -7,6 +7,7 @@ class TodoController {
         this.#todoListView = new TodoListView({
             onToggle: (id) => this.toggle(id),
             onDelete: (id) => this.delete(id),
+            onUpdate: (id) => this.update(id),
         });
         container.append(this.#todoListView.el);
 
@@ -45,6 +46,13 @@ class TodoController {
     .create(data)
     .then(()=> 
         this.#todoListView.renderList(this.#todosCollection.list))
+   }
+
+   update(id, changes){
+    this.#todosCollection
+   .updateNote(id, changes).then(() => {
+     
+    });
    }
 
 }
