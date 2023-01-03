@@ -2,8 +2,8 @@ import './App.css';
 
 import React, { Component } from 'react';
 
-import Form from '../src/to_Do_Mvc/Form/Form';
-import List from '../src/to_Do_Mvc/List/List';
+import Form from '../Form/Form';
+import List from '../List/List';
 
 class App extends Component {
     state = {
@@ -33,13 +33,6 @@ class App extends Component {
         });
     };
 
-    createTodo = (newTodo) =>{
-        this.setState({
-            list: [...this.state.list, 
-                {...newTodo, id: Date.now(), isDone: false }]
-        })
-    }
-
     render() {
         return (
             <>
@@ -48,7 +41,7 @@ class App extends Component {
                     onToggle={this.toggleTodo}
                     onDelete={this.deleteTodo}
                 />
-                <Form onSave={this.createTodo} />
+                <Form />
             </>
         );
     }
