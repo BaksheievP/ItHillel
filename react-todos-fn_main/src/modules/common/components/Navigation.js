@@ -23,6 +23,12 @@ function Navigation({ currentPath, navigate }) {
                 curerntPath={currentPath}
                 navigate={navigate}
             />
+              <NavigationLink
+                path="gallery"
+                label="Gallery"
+                curerntPath={currentPath}
+                navigate={navigate}
+            />
         </div>
             );      
 }
