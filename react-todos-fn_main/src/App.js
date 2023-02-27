@@ -7,7 +7,7 @@ import Gallery from './modules/gallery/components/gallery';
 import { useState } from 'react';
 import Navigation from './modules/common/components/Navigation';
 function App() {
-  const [currentPath, setcurrentPath] = useState('gallery')
+  const [currentPath, setcurrentPath] = useState('Todos')
   return (
     <>
     <Navigation currentPath ={currentPath} navigate={setcurrentPath}/>

@@ -2,7 +2,7 @@ import todosService from "../services/todosService";
 import { useEffect, useState } from "react";
 
 export default function useTodos() {
-    const INVALID_INPUT_CLASS = 'invalid-input'
+    // const INVALID_INPUT_CLASS = 'invalid-input'
     const [todos, setTodos] = useState([]);
     useEffect(() => {
         todosService.getList().then(setTodos)
